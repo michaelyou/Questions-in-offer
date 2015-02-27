@@ -1,5 +1,4 @@
 //将字符串转化为整数
-
 #include <stdio.h>
 #include <stdlib.h>
 
