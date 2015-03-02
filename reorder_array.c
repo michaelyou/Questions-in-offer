@@ -12,6 +12,8 @@ void Reorder(int *pData, unsigned int length, bool (*func)(int));
 bool isEven(int n);
 
 // ====================方法一====================
+/*参考了快排的partition，但是因为不涉及到具体数字大小，所以没有无限
+循环的顾虑*/
 void ReorderOddEven_1(int *pData, unsigned int length)
 {
     if(pData == NULL || length == 0)
@@ -40,9 +42,11 @@ void ReorderOddEven_1(int *pData, unsigned int length)
 }
 
 // ====================方法二====================
+/*思想和方法二是一样的，只是写成了一个通用的算法，比如要将能被3整除的
+数放在前面，不能的放在后面，只需要改变func函数就可以了*/
 void ReorderOddEven_2(int *pData, unsigned int length)
 {
-    Reorder(pData, length, isEven);
+    Reorder(pData, length, isEven); //将isEven函数作为参数传递
 }
 
 void Reorder(int *pData, unsigned int length, bool (*func)(int))
