@@ -6,7 +6,8 @@
 
 void main()
 {
-    int i = ~0;
+    //'~'是按位取反
+    int i = ~0; 
     if((unsigned int)i == 65535)
         printf("this is a 16bit computer\n");
     else if((unsigned int)i == (pow(2, 32) - 1))

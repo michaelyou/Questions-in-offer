@@ -1,5 +1,5 @@
-/*题目:实现函数 double Power(double base, int exponent)，求base的exponent 
- *次方。不得使用库函数，同时不需要考虑大数问题
+/*题目:实现函数 double Power(double base, int exponent)，
+ *求base的exponent次方。不得使用库函数，同时不需要考虑大数问题
  */
  
 #include <stdio.h>

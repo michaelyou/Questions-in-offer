@@ -1,4 +1,5 @@
-// NumberOf1InBinary.cpp : Defines the entry point for the console application.
+// NumberOf1InBinary.cpp : 
+// Defines the entry point for the console application.
 //
 
 // 《剑指Offer——名企面试官精讲典型编程题》代码

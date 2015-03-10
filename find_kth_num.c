@@ -25,7 +25,7 @@ int partition(int *array, int length, int left, int right)
     if(left < right){
         int k = (left + right) / 2;
         int key = array[k];
-        swap(&array[k], &array[right]);
+        swap(&array[k], &array[left]);
         int i = left + 1;
         int j = right;
 
@@ -45,7 +45,7 @@ int partition(int *array, int length, int left, int right)
                 break;
         }
         
-        swap(&array[i], &array[right]);
+        swap(&array[i], &array[left]);
 
         return i;
     }

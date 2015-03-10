@@ -1,4 +1,5 @@
-/*找出一个整数数组中第二大的数*/
+/*找出一个整数数组中第二大的数
+  终极问题是找到一个数组中第k大的数，可以用partition*/
 #include <stdio.h>
 
 int find_second_biggest_num(int *a, int size)
