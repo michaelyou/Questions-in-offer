@@ -1,14 +1,16 @@
-//合并数组 
+////有两个排序的数组a1和a2，内存在a1的末尾有足够多的剩余空间容纳a2  
+//实现一个函数将a2中所有的数字插入到a1，并且所有的数字是排序的。 
 #include <stdio.h> 
 
 #define SIZEOFMATRIX1 100
 
-void mergaMatrix(int* matrix1,int* matrix2, 
+int mergaMatrix(int* matrix1,int* matrix2, 
                  int lenofmtrx1,int lenofmtrx2,int sizeofmatrix1) 
 { 
     if(sizeofmatrix1 != 0 && matrix1 != NULL && lenofmtrx1 !=0  
         &&  matrix2 != NULL && lenofmtrx2 != 0 )  
     { 
+
         int* pNewMatrix1 = matrix1 + lenofmtrx1 + lenofmtrx2 -1; 
         int* pMatrix1 = matrix1 + lenofmtrx1 - 1; 
         int* pMatrix2 = matrix2 +lenofmtrx2 - 1; 
@@ -29,7 +31,7 @@ void mergaMatrix(int* matrix1,int* matrix2,
             *pNewMatrix1-- = *pMatrix2--; 
         } 
     } 
-    return; 
+    return (lenofmtrx1 + lenofmtrx2); 
 } 
    
 //单元测试 

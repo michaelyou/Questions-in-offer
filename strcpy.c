@@ -14,7 +14,7 @@ void strcpy(void*dst, char * src, size_t len)
         dst++;
         src++;
         len--;
-    }
+    }        //没有返回值，而dst现在指向字符串尾
 }
 #endif
 

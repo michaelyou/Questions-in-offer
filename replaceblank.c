@@ -14,7 +14,10 @@
      /*originalLength 为字符串string的实际长度*/
      int originalLength = 0;
      int numberOfBlank = 0;
+     
      int i = 0;
+     
+     //这里不要用*string，会改变string指针的位置
      while(string[i] != '\0')
      {
          ++ originalLength;
@@ -48,6 +51,39 @@
          -- indexOfOriginal;
      }
  }
+
+//我的版本
+ void replace_blank(char *str, int length)
+{
+    int true_length = 0;
+    int blank_num = 0;
+
+    char *p = str;
+    
+    while(*p != '\0') {
+        if(*p == ' ')
+            blank_num++;
+        else
+            true_length++;
+        p++;
+    }
+
+    int new_length = true_length + 3*blank_num;
+
+    int i,j;
+
+    for(i = new_length-1, j = length-1; j >= 0; j--) {
+        if(str[j] == ' ') {
+            str[i--] = '0';
+            str[i--] = '2';
+            str[i--] = '%';
+        }
+        else
+            str[i--] = str[j];
+    }
+}
+
+
  
  void Test(char* testName, char string[], int length, char expected[])
  {

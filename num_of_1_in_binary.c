@@ -29,10 +29,9 @@ int NumberOf1_Solution2(int n)
 
     while (n)
     {
-        ++ count;
+        count++;
         n = (n - 1) & n;
     }
-
     return count;
 }
 
@@ -52,6 +51,7 @@ void Test(int number, unsigned int expected)
 
     printf("\n");
 }
+
 
 int main(int argc, char **argv)
 {

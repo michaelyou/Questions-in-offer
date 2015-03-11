@@ -43,7 +43,7 @@ long long StrToIntCore(const char* digit, bool minus)
             int flag = minus ? -1 : 1;
             num = num * 10 + flag * (*digit - '0');
 
-            if((!minus && num > 0x7FFFFFFF) 
+            if((!minus && num > 0x7FFFFFFF) //Òç³ö
                 || (minus && num < (signed int)0x80000000))
             {
                 num = 0;

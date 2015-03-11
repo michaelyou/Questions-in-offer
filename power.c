@@ -9,43 +9,19 @@
 #define true 1
 
 bool g_InvalidInput = false;
-bool equal(double num1, double num2);
-double PowerWithUnsignedExponent(double base, unsigned int exponent);
- 
-double Power(double base, int exponent)
-{
-    g_InvalidInput = false;
- 
-    if(equal(base, 0.0) && exponent < 0)
-    {
-        g_InvalidInput = true;
-        return 0.0;
-    }
- 
-    unsigned int absExponent = (unsigned int)(exponent);
-    if(exponent < 0)
-        absExponent = (unsigned int)(-exponent);
- 
-    double result = PowerWithUnsignedExponent(base, absExponent);
-    if(exponent < 0)
-        result = 1.0 / result;
-    //printf("locate result = %d\n", result);
-    return result;
-}
- 
 
 double PowerWithUnsignedExponent(double base, unsigned int exponent)
 {
     if(exponent == 0)
         return 1;
-    if(exponent == 1)
-        return base;
 
-    double result = PowerWithUnsignedExponent(base, exponent >> 1);
-    result *= result;
-    if((exponent & 0x1) == 1)
+        
+    double result = base;
+    while(exponent > 1) {
         result *= base;
-
+        exponent--;
+    }
+    
     return result;
 }
 
@@ -62,6 +38,30 @@ bool equal(double num1, double num2)
     else
         return false;
 }
+
+ 
+double Power(double base, int exponent)
+{
+    g_InvalidInput = false;
+ 
+    if(equal(base, 0.0) && exponent < 0)
+    {
+        g_InvalidInput = true;
+        return 0.0;  //因为正常情况下是不可能返回0的
+    }
+ 
+    unsigned int absExponent = (unsigned int)(exponent);
+    if(exponent < 0)
+        absExponent = (unsigned int)(-exponent);
+ 
+    double result = PowerWithUnsignedExponent(base, absExponent);
+    if(exponent < 0)
+        result = 1.0 / result;
+    //printf("locate result = %d\n", result);
+    return result;
+}
+ 
+
 
 // ====================测试代码====================
 void Test(double base, int exponent, double expectedResult, bool expectedFlag)
